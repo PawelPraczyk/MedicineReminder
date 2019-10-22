@@ -1,5 +1,6 @@
 ﻿using MedicineRemainder.Core.Models;
-using MedicineRemainder.Core.Repositories;
+using MedicineRemainder.Data.Dtos;
+using MedicineRemainder.Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,14 +16,14 @@ namespace MedicineRemainder.Data.Services
             _userRepository = userRepository;
         }
 
-        public void Register(string email, string name, string password)
+        public void Register(UserDto _user)
         {
-            var user = _userRepository.Get(email);
+            var user = _userRepository.Get(_user.Email);
             if(user != null)
             {
-                throw new Exception($"User with emial: ${email} alredy exists.");
+                throw new Exception($"User with emial: ${_user.Email} alredy exists.");
             }
-            user = new User(email, password, name);
+            user = new User(_user.Email, _user.Password, _user.Name);
             _userRepository.Create(user);
         }
     }

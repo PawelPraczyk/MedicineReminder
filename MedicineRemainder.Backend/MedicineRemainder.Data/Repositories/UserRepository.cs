@@ -1,5 +1,5 @@
 ﻿using MedicineRemainder.Core.Models;
-using MedicineRemainder.Core.Repositories;
+using MedicineRemainder.Data.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +10,17 @@ namespace MedicineRemainder.Data.Repositories
     public class UserRepository : IUserRepository
     {
         // here should be db context 
-        private static ISet<User> _users = new HashSet<User>();
+        private readonly MedicineRemainderContext _medicineRemainderContext;
+
+        public UserRepository(MedicineRemainderContext medicineRemainderContext)
+        {
+            _medicineRemainderContext = medicineRemainderContext;
+        }
 
         public void Create(User user)
         {
-            _users.Add(user);
+            _medicineRemainderContext.Add(user);
+            _medicineRemainderContext.SaveChanges();
         }
 
         public User Get(Guid id)
@@ -24,7 +30,7 @@ namespace MedicineRemainder.Data.Repositories
 
         public User Get(string email)
         {
-            var user = _users.Single(x => x.Email == email.ToLowerInvariant());
+            var user = _medicineRemainderContext.Users.SingleOrDefault(x => x.Email == email.ToLowerInvariant());
             if (user != null)
             {
                 return user;
@@ -37,7 +43,11 @@ namespace MedicineRemainder.Data.Repositories
 
         public void Remove(Guid id)
         {
-            throw new NotImplementedException();
+            var user = _medicineRemainderContext.Users.SingleOrDefault(x => x.Id == id);
+            if (user != null)
+            {
+                _medicineRemainderContext.Remove(user);
+            }
         }
 
         public void Update(User user)

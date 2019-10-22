@@ -10,7 +10,7 @@ namespace MedicineRemainder.Core.Models
         public string Email { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
-        public List<Event> Events { get; set; }
+        public ICollection<Event> Events { get; set; }
 
         public User(string email, string password, string name)
         {

@@ -5,8 +5,8 @@ using System.Text;
 
 namespace MedicineRemainder.Data.Services
 {
-    public interface IUserService
+    public interface IMedicineService
     {
-        void Register(UserDto user);
+        void Add(MedicineDto medicineDto);
     }
 }

@@ -8,5 +8,12 @@ namespace MedicineRemainder.Core.Models
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public String Description { get; set; }
+
+        public Medicine(string name, String description)
+        {
+            Name = name;
+            Description = description;
+        }
     }
 }

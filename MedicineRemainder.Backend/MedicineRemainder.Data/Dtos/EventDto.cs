@@ -4,10 +4,10 @@ using System.Text;
 
 namespace MedicineRemainder.Data.Dtos
 {
-    public class UserDto
+    public class EventDto
     {
         public string Name { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
+        public string Message { get; set; }
+        public DateTime RemaindDate { get; set; }
     }
 }

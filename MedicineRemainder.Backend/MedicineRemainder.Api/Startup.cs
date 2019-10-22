@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using MedicineRemainder.Data.Database;
+using MedicineRemainder.Data.Repositories;
+using MedicineRemainder.Data.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace MedicineRemainder.Api
 {
@@ -25,7 +22,15 @@ namespace MedicineRemainder.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<MedicineRemainderContext>(options =>
+               options.UseSqlServer(Configuration.GetConnectionString("MedicineRemainderDb")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IEventService, EventService>();
+            services.AddScoped<IMedicineService, MedicineService>();
+            services.AddScoped<IEventRepository, EventRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IMedicineRepository, MedicineRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
