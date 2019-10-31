@@ -2,8 +2,6 @@
 using MedicineReminder.Data.Dtos;
 using MedicineReminder.Data.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MedicineReminder.Data.Services
 {

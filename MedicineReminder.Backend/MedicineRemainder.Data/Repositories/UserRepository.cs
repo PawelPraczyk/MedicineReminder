@@ -30,15 +30,11 @@ namespace MedicineReminder.Data.Repositories
 
         public User Get(string email)
         {
-            var user = _medicineRemainderContext.Users.SingleOrDefault(x => x.Email == email.ToLowerInvariant());
-            if (user != null)
+            if (String.IsNullOrEmpty(email))
             {
-                return user;
+                throw new Exception("Email need to have value!");
             }
-            else
-            {
-                throw new Exception(String.Format("User with {0} email doesnt exist!", email));
-            }
+            return _medicineRemainderContext.Users.SingleOrDefault(x => x.Email == email.ToLowerInvariant());
         }
 
         public void Remove(Guid id)
