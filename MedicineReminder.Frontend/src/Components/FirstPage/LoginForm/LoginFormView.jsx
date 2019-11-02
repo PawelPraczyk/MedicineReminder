@@ -7,11 +7,14 @@ import {
     MDBBtn,
     MDBCard,
     MDBCardBody,
-    MDBModalFooter
+    MDBModalFooter,
+    MDBNavLink
 } from "mdbreact";
 import "./loginForm.css"
 
-const LoginFormView = () => {
+const LoginFormView = ({
+  changeFormToRegister
+}) => {
     return (
         <MDBContainer className="ml-sm-5">
             <MDBRow className="vw-93">
@@ -53,18 +56,8 @@ const LoginFormView = () => {
                 </form>
                 <MDBModalFooter>
                   <div className="font-weight-light footer-styling">
-                    <div>
                       Not a member?
-                      <div
-                        className="activeLink"
-                      >
-                        {" "}
-                        Sign Up
-                      </div>
-                    </div>
-                    <p className="activeLink">
-                      Forgot Password?
-                    </p>
+                      <MDBNavLink to="/register">Sign up</MDBNavLink>
                   </div>
                 </MDBModalFooter>
               </MDBCardBody>
