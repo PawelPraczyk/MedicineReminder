@@ -37,7 +37,7 @@ const EventsFormView = () => {
                                 type="textarea"
                                 />
                                 <div className="flex-center">
-                                    <MDBBtn  color="deep-orange" type="submit" className="login-btn center ">
+                                    <MDBBtn type="submit" className="login-btn center ">
                                         Add
                                     </MDBBtn>      
                                 </div>

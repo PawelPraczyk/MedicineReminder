@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBBtn, MDBModalFooter, MDBInput } from "mdbreact";
+import { MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBBtn, MDBModalFooter, MDBInput, MDBNavLink } from "mdbreact";
 
 const RegisterFormView = ({
     register,
@@ -67,7 +67,7 @@ const RegisterFormView = ({
                                         id = "registerFormConfirmPassword"
                                     />
                                     <div className="flex-center">
-                                        <MDBBtn onClick={register} color="deep-orange" type="submit" className="login-btn center ">
+                                        <MDBBtn onClick={register}  type="submit" className="login-btn center ">
                                             Register
                                         </MDBBtn>      
                                     </div>
@@ -77,10 +77,7 @@ const RegisterFormView = ({
                                 <div className="font-weight-light footer-styling">
                                     <div>
                                         Are you member?
-                                        <div onClick={() => console.log("changeform")} className="activeLink">
-                                            {" "}
-                                            Sign in
-                                        </div>
+                                        <MDBNavLink to="/login">Sign in</MDBNavLink>
                                     </div>
                                 </div>
                             </MDBModalFooter>

@@ -43,6 +43,8 @@ class RegisterForm extends Component {
       });
 
       const data = await response.text();
+      this.props.history.push("/");
+
       return data;
     } catch (ex) {
       console.log('Exception:', ex)
