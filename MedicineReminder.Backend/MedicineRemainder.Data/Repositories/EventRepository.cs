@@ -40,12 +40,18 @@ namespace MedicineReminder.Data.Repositories
             }
         }
 
+        public IEnumerable<Event> Get()
+        {
+            return _medicineRemainderContext.Events.ToList();
+        }
+
         public void Remove(Guid id)
         {
             var _event = _medicineRemainderContext.Events.SingleOrDefault(x => x.Id == id);
             if (_event != null)
             {
-                _medicineRemainderContext.Remove(_event);
+                _medicineRemainderContext.Events.Remove(_event);
+                _medicineRemainderContext.SaveChanges();
             }
             else
             {

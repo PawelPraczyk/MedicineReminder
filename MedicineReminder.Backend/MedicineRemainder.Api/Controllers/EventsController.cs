@@ -30,8 +30,13 @@ namespace MedicineReminder.Api.Controllers
         [HttpGet("{id}")]
         public IActionResult GetEvent(Guid id)
         {
-            var eventDto = _eventService.GetEvent(id);
-            return new JsonResult(eventDto);
+            return new JsonResult(_eventService.GetEvent(id));
+        }
+
+        [HttpGet]
+        public IActionResult GetEvents()
+        {
+            return new JsonResult(_eventService.GetEvents());
         }
 
         [HttpDelete("{id}")]

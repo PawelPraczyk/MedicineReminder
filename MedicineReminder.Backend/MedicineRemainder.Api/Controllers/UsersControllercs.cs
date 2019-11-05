@@ -27,5 +27,11 @@ namespace MedicineReminder.Api.Controllers
             _userService.Register(user);
             return Ok();
         }
+
+        [HttpGet("{email}")]
+        public IActionResult GetUser(string email)
+        {
+            return new JsonResult(_userService.Get(email));
+        }
     }
 }

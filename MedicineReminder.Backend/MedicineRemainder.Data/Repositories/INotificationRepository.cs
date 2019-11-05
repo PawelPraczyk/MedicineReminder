@@ -6,11 +6,11 @@ using System.Text;
 
 namespace MedicineReminder.Data.Repositories
 {
-    public interface IUserRepository
+    public interface INotificationRepository
     {
-        UserDto Get(Guid id);
-        UserDto Get(string email);
-        void Create(User user);
+        void Create(Notification notification);
+        NotificationDto Get(Guid id);
+        IEnumerable<Notification> Get();
         void Remove(Guid id);
     }
 }

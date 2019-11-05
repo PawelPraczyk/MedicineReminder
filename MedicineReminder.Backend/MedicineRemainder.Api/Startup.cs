@@ -31,6 +31,9 @@ namespace MedicineReminder.Api
             services.AddScoped<IEventRepository, EventRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IMedicineRepository, MedicineRepository>();
+            services.AddScoped<INotificationService, NotificationService>();
+            services.AddScoped<INotificationRepository, NotificationRepository>();
+            services.AddHostedService<CheckEventProvider>();
 
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {

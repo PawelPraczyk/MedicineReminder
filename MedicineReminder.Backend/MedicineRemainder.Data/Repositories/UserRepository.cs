@@ -1,5 +1,6 @@
 ﻿using MedicineReminder.Core.Models;
 using MedicineReminder.Data.Database;
+using MedicineReminder.Data.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,18 +24,24 @@ namespace MedicineReminder.Data.Repositories
             _medicineRemainderContext.SaveChanges();
         }
 
-        public User Get(Guid id)
+        public UserDto Get(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public User Get(string email)
+        public UserDto Get(string email)
         {
             if (String.IsNullOrEmpty(email))
             {
                 throw new Exception("Email need to have value!");
             }
-            return _medicineRemainderContext.Users.SingleOrDefault(x => x.Email == email.ToLowerInvariant());
+            var user = _medicineRemainderContext.Users.SingleOrDefault(x => x.Email == email.ToLowerInvariant());
+            return new UserDto
+            {
+                Email = user.Email,
+                Password = user.Password,
+                Name = user.Name
+            };
         }
 
         public void Remove(Guid id)
