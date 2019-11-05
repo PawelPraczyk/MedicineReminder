@@ -14,6 +14,27 @@ namespace MedicineReminder.Data.Services
             _userRepository = userRepository;
         }
 
+        public UserDto Get(string email)
+        {
+            return _userRepository.Get(email);
+        }
+
+        public void Login(string email, string password)
+        {
+            var user = _userRepository.Get(email);
+            if(user == null)
+            {
+                throw new Exception("Invalid credentials.");
+            }
+
+            if(password == user.Password)
+            {
+                return;
+            }
+
+            throw new Exception("Invalid credentials!");
+        }
+
         public void Register(UserDto _user)
         {
             var user = _userRepository.Get(_user.Email);
@@ -21,8 +42,8 @@ namespace MedicineReminder.Data.Services
             {
                 throw new Exception($"User with emial: ${_user.Email} alredy exists.");
             }
-            user = new User(_user.Email, _user.Password, _user.Name);
-            _userRepository.Create(user);
+            var user1 = new User(_user.Email, _user.Password, _user.Name);
+            _userRepository.Create(user1);
         }
     }
 }

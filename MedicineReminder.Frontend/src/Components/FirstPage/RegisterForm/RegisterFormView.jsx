@@ -25,7 +25,7 @@ const RegisterFormView = ({
                                     </div>
                                     <MDBInput
                                         label="Your name"
-                                        icon="envelope"
+                                        icon="user-circle"
                                         group
                                         validate
                                         error="wrong"

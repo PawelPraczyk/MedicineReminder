@@ -5,10 +5,8 @@ using System.Text;
 
 namespace MedicineReminder.Data.Services
 {
-    public interface IUserService
+    public interface INotificationService
     {
-        void Register(UserDto user);
-        void Login(string email, string password);
-        UserDto Get(string email);
+        void RegisterNotification(NotificationDto notificationDto);
     }
 }

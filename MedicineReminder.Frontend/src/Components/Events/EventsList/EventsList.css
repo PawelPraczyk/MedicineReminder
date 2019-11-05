@@ -1,0 +1,8 @@
+.add-event {
+    display: flex;
+    justify-content: center;
+}
+
+.fs-8 {
+    font-size: 8rem;
+}
