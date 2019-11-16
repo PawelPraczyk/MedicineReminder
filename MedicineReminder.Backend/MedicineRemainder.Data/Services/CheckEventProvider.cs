@@ -34,8 +34,8 @@ namespace MedicineReminder.Data.Services
                 var _medicineReminderContext = scope.ServiceProvider.GetRequiredService<MedicineReminderContext>();
 
                 var date = DateTime.Now;
-                var rangePositive = date.AddSeconds(60);
-                var rangeNegative = date.AddSeconds(-60);
+                var rangePositive = date.AddSeconds(1);
+                var rangeNegative = date.AddSeconds(1);
                 if (_medicineReminderContext.Events.Any(g => g.RemaindDate <= rangePositive && g.Date >= rangeNegative))
                 {
                     var remaid = _medicineReminderContext.Events.Single(g => g.RemaindDate <= rangePositive && g.Date >= rangeNegative);
@@ -47,7 +47,7 @@ namespace MedicineReminder.Data.Services
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            _timer = new Timer(CheckForRemainder, null, 0, 60000);
+            _timer = new Timer(CheckForRemainder, null, 0, 1000);
             return Task.CompletedTask;
         }
 

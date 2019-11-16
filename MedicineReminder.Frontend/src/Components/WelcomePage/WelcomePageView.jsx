@@ -8,13 +8,24 @@ import {
     MDBNavbarToggler,
     MDBCollapse,
     MDBNavbarNav,
+    MDBBtn
 } from "mdbreact";
 
-const WelcomePageView = () =>
+const WelcomePageView = ({ handleClick, d }) =>
 {
-
     return (
-        <h1>Welcome Page</h1>
+        <div>
+        <MDBBtn onClick={handleClick}  type="button" className="login-btn center ">
+            Register
+        </MDBBtn>
+         {d ? (
+          <h1> esssssssssssssssssssssssssssssssssssssssssssssssssssssss</h1>
+        ) : null}
+        <MDBBtn onClick={() => console.log(d)}  type="button" className="login-btn center ">
+            Register
+        </MDBBtn>    
+        </div>
+        
     );
 }
 
