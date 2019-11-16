@@ -8,5 +8,7 @@ namespace MedicineReminder.Data.Services
     public interface INotificationService
     {
         void RegisterNotification(NotificationDto notificationDto);
+        void RemoveNotification(Guid id);
+        IEnumerable<NotificationDto> GetAll();
     }
 }
