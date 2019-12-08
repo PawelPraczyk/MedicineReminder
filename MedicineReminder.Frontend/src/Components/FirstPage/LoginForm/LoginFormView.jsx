@@ -17,17 +17,18 @@ const LoginFormView = ({
 }) => {
     return (
         <MDBContainer className="ml-sm-5">
-            <MDBRow className="vw-93">
-                <p className="h4 text-center py-4 vw-100">Sign in</p>
-            </MDBRow>
-        <MDBRow className="vw-93">
+            
+        <MDBRow className="vw-93 mt-5">
           <MDBCol className="center mdb-row" w="100">
             <MDBCard className="card-height">
               <MDBCardBody className="h-100 card-align p-2">
+                <MDBRow className="vw-93 grey-text">
+                <p className="h4 text-center py-4 vw-100">Logowanie</p>
+            </MDBRow>
                 <form className="card-form">
                   <div className="grey-text">
                     <MDBInput
-                      label="Your email"
+                      label="Adres email"
                       icon="envelope"
                       group
                       type="email"
@@ -39,7 +40,7 @@ const LoginFormView = ({
                     />
 
                     <MDBInput
-                      label="Your password"
+                      label="Hasło"
                       icon="lock"
                       group
                       type="password"
@@ -50,14 +51,14 @@ const LoginFormView = ({
                   </div>
                   <div className="text-center py-4 mt-3">
                     <MDBBtn type="submit" className="login-btn">
-                      Login
+                      Zaloguj
                     </MDBBtn>
                   </div>
                 </form>
                 <MDBModalFooter>
                   <div className="font-weight-light footer-styling">
-                      Not a member?
-                      <MDBNavLink to="/register">Sign up</MDBNavLink>
+                      Nie masz jeszcze konta?
+                      <MDBNavLink to="/register">Zarejestruj się</MDBNavLink>
                   </div>
                 </MDBModalFooter>
               </MDBCardBody>

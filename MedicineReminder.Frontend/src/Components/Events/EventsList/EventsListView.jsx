@@ -10,17 +10,17 @@ const EventsListView = ({events, onDelete}) => {
       sort: 'asc'
     },
     {
-      label: 'Name',
+      label: 'Nazwa',
       field: 'name',
       sort: 'asc'
     },
     {
-      label: 'Description',
+      label: 'Opis',
       field: 'message',
       sort: 'asc'
     },
     {
-      label: 'Date',
+      label: 'Data',
       field: 'date',
       sort: 'asc'
     },

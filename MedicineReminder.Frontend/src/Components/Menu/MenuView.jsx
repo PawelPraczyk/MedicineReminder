@@ -22,13 +22,13 @@ const MenuView = () =>
                 <MDBCollapse id="navbarCollapse3"  navbar>
                 <MDBNavbarNav left>
                     <MDBNavItem active>
-                    <MDBNavLink to="/">Home</MDBNavLink>
+                    <MDBNavLink to="/">Strona Główna</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                    <MDBNavLink to="/events">Events</MDBNavLink>
+                    <MDBNavLink to="/events">Zdarzenia</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                    <MDBNavLink to="#!">Medicines</MDBNavLink>
+                    <MDBNavLink to="/medicines">Baza leków</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
                     </MDBNavItem>

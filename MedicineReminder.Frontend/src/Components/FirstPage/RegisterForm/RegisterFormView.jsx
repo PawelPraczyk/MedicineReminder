@@ -4,27 +4,32 @@ import { MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBBtn, MDBModalFoo
 const RegisterFormView = ({
     register,
     handleInputChange,
-    showIncorrectPassword
+    showIncorrectPassword,
+    showInvalidEmail
     }) => {
 
     return(
         <MDBContainer className="ml-sm-5">
-            <MDBRow className="vw-93">
-                <p className="h4 text-center py-4 vw-100">Sign up</p>
-            </MDBRow>
-            <MDBRow className="vw-93">
+            
+            <MDBRow className="vw-93 mt-5">
                 <MDBCol className="center mdb-row" w="100">
-                    <MDBCard className="card-height">
+                    <MDBCard className="">
                         <MDBCardBody className="h-100 card-align p-2">
+                            <MDBRow className="vw-93 grey-text mt-5">
+                <p className="h4 text-center py-4 vw-100">Rejestracja</p>
+            </MDBRow>
                             <form className="card-form">
                                 <div className="grey-text ">
                                     <div className="grey-text">
                                     {showIncorrectPassword ? (
-                                        <p>Password aren't indencital.</p>
+                                        <p>Obydwa hasła różnią się od siebie.</p>
+                                        ) : null}
+                                        {showInvalidEmail ? (
+                                        <p>Adres emial jest nieprawidłowy.</p>
                                     ) : null}
                                     </div>
                                     <MDBInput
-                                        label="Your name"
+                                        label="Nazwa użytkownika"
                                         icon="user-circle"
                                         group
                                         validate
@@ -35,7 +40,7 @@ const RegisterFormView = ({
                                         id="registerFormName"
                                     />
                                      <MDBInput
-                                        label="Your email"
+                                        label="Adres email"
                                         icon="envelope"
                                         group
                                         type="email"
@@ -47,7 +52,7 @@ const RegisterFormView = ({
                                         id = "registerFormEmail"
                                     />
                                     <MDBInput
-                                        label="Your password"
+                                        label="Hasło"
                                         icon="lock"
                                         group
                                         type="password"
@@ -57,7 +62,7 @@ const RegisterFormView = ({
                                         id = "registerFormPassword"
                                     />
                                     <MDBInput
-                                        label="Confirm password"
+                                        label="Potwierdź hasło"
                                         icon = "exclamation-triangle"
                                         group
                                         type="password"
@@ -68,7 +73,7 @@ const RegisterFormView = ({
                                     />
                                     <div className="flex-center">
                                         <MDBBtn onClick={register}  type="submit" className="login-btn center ">
-                                            Register
+                                            Zarejestruj
                                         </MDBBtn>      
                                     </div>
                                 </div>
@@ -76,8 +81,8 @@ const RegisterFormView = ({
                             <MDBModalFooter>
                                 <div className="font-weight-light footer-styling">
                                     <div>
-                                        Are you member?
-                                        <MDBNavLink to="/login">Sign in</MDBNavLink>
+                                        Masz już konto?
+                                        <MDBNavLink to="/login">Zaloguj się</MDBNavLink>
                                     </div>
                                 </div>
                             </MDBModalFooter>

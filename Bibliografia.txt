@@ -6,3 +6,15 @@ https://play.google.com/store/apps/details?id=com.medisafe.android.client&hl=pl
 https://play.google.com/store/apps/details?id=eu.smartpatient.mytherapy&hl=pl
 https://www.healthandcare.co.uk/pill-alarms-and-pill-timers/tabtime-vibe-vibrating-pill-alarm.html
 </Przyk³ady>
+
+https://typeofweb.com/poznaj-react-js/
+https://docs.microsoft.com/pl-pl/aspnet/core/?view=aspnetcore-2.1
+https://nofluffjobs.com/blog/wszystko-co-powinienes-wiedziec-o-net-core/
+https://pl.wikipedia.org/wiki/React.js
+https://www.centrumxp.pl/Publikacja/Czym-jest-Microsoft-SQL-Server
+https://pl.wikipedia.org/wiki/Microsoft_SQL_Server
+https://kobietydokodu.pl/niezbednik-juniora-protokol-http/
+https://www.sqlpedia.pl/srodowisko-ms-sql-server/
+https://programistologia.pl/2017/03/24/xamarin-jak-sie-do-tego-zabrac-w-2017/#Section_CoToJestXamarin
+https://browserspot.com/blog/przebieg-procesu-testowego-aplikacji-webowych/
+http://testpro.pl/poradnik-poczatkujacego-testera-testowanie-aplikacji-webowych/

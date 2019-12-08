@@ -1,4 +1,5 @@
-﻿using MedicineReminder.Core.Models;
+﻿using ExternalDevice.ViewModels;
+using MedicineReminder.Core.Models;
 using MedicineReminder.Data.Database;
 using MedicineReminder.Data.Dtos;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,12 +14,13 @@ namespace MedicineReminder.Data.Services
     public class CheckEventProvider : IHostedService
     {
         private readonly IServiceScopeFactory _scopeFactory;
+        private readonly MainViewModel _model = new MainViewModel();
 
         public CheckEventProvider(IServiceScopeFactory scopeFactory)
         {
             _scopeFactory = scopeFactory;
+          //  _model = model;
         }
-
         //private readonly INotificationService _notificationService;
         private Timer _timer;
 
@@ -35,10 +37,11 @@ namespace MedicineReminder.Data.Services
 
                 var date = DateTime.Now;
                 var rangePositive = date.AddSeconds(1);
-                var rangeNegative = date.AddSeconds(1);
-                if (_medicineReminderContext.Events.Any(g => g.RemaindDate <= rangePositive && g.Date >= rangeNegative))
+                var rangeNegative = date.AddSeconds(-1);
+                if (_medicineReminderContext.Events.Any(g => g.RemaindDate <= rangePositive && g.RemaindDate >= rangeNegative))
                 {
-                    var remaid = _medicineReminderContext.Events.Single(g => g.RemaindDate <= rangePositive && g.Date >= rangeNegative);
+                    var remaid = _medicineReminderContext.Events.Single(g => g.RemaindDate <= rangePositive && g.RemaindDate >= rangeNegative);
+                    _model.Vibrate();
                     _medicineReminderContext.Add(new Notification(remaid.Name, remaid.Message));
                     _medicineReminderContext.SaveChanges();
                 }

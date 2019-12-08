@@ -36,6 +36,10 @@ namespace MedicineReminder.Data.Repositories
                 throw new Exception("Email need to have value!");
             }
             var user = _medicineRemainderContext.Users.SingleOrDefault(x => x.Email == email.ToLowerInvariant());
+            if(user == null)
+            {
+                return null;
+            }
             return new UserDto
             {
                 Email = user.Email,

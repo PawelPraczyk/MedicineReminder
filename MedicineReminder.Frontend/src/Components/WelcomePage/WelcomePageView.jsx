@@ -15,15 +15,7 @@ const WelcomePageView = ({ handleClick, d }) =>
 {
     return (
         <div>
-        <MDBBtn onClick={handleClick}  type="button" className="login-btn center ">
-            Register
-        </MDBBtn>
-         {d ? (
-          <h1> esssssssssssssssssssssssssssssssssssssssssssssssssssssss</h1>
-        ) : null}
-        <MDBBtn onClick={() => console.log(d)}  type="button" className="login-btn center ">
-            Register
-        </MDBBtn>    
+            <h1>Esssa wriat</h1>
         </div>
         
     );
